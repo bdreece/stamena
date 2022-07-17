@@ -19,18 +19,6 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
       </div>
     </Link>,
   ];
-  items = user
-    ? [
-        ...items,
-        <Link
-          className="btn btn-primary rounded-lg"
-          href="/api/auth/login"
-          key={2}
-        >
-          Log In
-        </Link>,
-      ]
-    : items;
 
   return (
     <div className="drawer">

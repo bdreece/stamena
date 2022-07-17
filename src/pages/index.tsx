@@ -13,7 +13,7 @@ const Home: NextPage = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <Image
-            src="https://ae01.alicdn.com/kf/Sb3f1de0209b04e37aaeb66c8d094d3ebx/LILYGO-T-Higrow-ESP32-Soil-Tester-DHT11-BEM280-Garden-Flowers-Temperature-Moisture-Sensor-WiFi-Bluetooth-Wireless.jpg_Q90.jpg_.webp"
+            src="https://fjrflrzxudmtlaaltbjc.supabase.co/storage/v1/object/public/photos/LILYGO-T-Higrow-ESP32-Soil-Tester-DHT11-BEM280-Garden-Flowers-Temperature-Moisture-Sensor-WiFi-Bluetooth-Wireless.jpg_Q90.jpg_.webp"
             className="max-w-sm rounded-lg shadow-xl"
             width={336}
             height={336}

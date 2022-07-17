@@ -1,3 +1,2 @@
-import {handleAuth} from '@auth0/nextjs-auth0';
-
+import { AfterCallback, handleAuth, handleCallback } from '@auth0/nextjs-auth0';
 export default handleAuth();

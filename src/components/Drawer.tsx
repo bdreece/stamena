@@ -4,7 +4,9 @@ const Drawer: React.FC<{ children: JSX.Element[] }> = ({ children }) => {
       <label htmlFor="my-drawer" className="drawer-overlay"></label>
       <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
         {children.map((child, i) => (
-          <li key={i}>{child}</li>
+          <li className="my-2" key={i}>
+            {child}
+          </li>
         ))}
       </ul>
     </>

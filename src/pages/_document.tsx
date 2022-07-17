@@ -33,7 +33,7 @@ const Document = () => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <body>
+      <body data-theme="garden">
         <Main />
         <NextScript />
       </body>

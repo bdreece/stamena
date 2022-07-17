@@ -6,9 +6,7 @@ export interface PlantsViewProps {
 }
 
 const PlantsView: React.FC<PlantsViewProps> = ({ user }) => {
-  return (
-    
-  );
+  return <></>;
 };
 
 export default PlantsView;

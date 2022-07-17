@@ -22,7 +22,7 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
             </div>
           </Link>
           {user ? (
-            <ProfileDropdown user={user} />
+            <ProfileDropdown user={user} end />
           ) : (
             <Link href="/api/auth/login">
               <div className="btn btn-success text-light rounded-lg display">
@@ -36,17 +36,25 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
       </div>
       <div className="drawer-side">
         <Drawer>
-          <SearchBar searchFunc={() => {}} key={0} />
+          <SearchBar searchFunc={() => {}} />
           <Link href="/leaderboard" key={1}>
             <div className="btn btn-primary rounded-lg display">
               Leaderboard
             </div>
           </Link>
-          <Link href={!user ? '/api/auth/login' : '/api/auth/logout'} key={2}>
-            <div className="btn btn-success text-light rounded-lg display">
-              {!user ? 'Log In' : 'Log Out'}
-            </div>
-          </Link>
+          {user ? (
+            <ProfileDropdown
+              user={user}
+              label={user.name ?? undefined}
+              end={false}
+            />
+          ) : (
+            <Link href="/api/auth/login">
+              <div className="btn btn-success text-light rounded-lg display">
+                Log In
+              </div>
+            </Link>
+          )}
         </Drawer>
       </div>
     </div>

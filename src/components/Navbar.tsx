@@ -31,7 +31,7 @@ const Navbar: React.FC<{ children: JSX.Element[] }> = ({ children }) => {
       <div className="flex-none hidden lg:block">
         <ul className="menu menu-horizontal">
           {children.map((child, i) => (
-            <li className="mx-2" key={i}>
+            <li className="mx-2 content-center" key={i}>
               {child}
             </li>
           ))}

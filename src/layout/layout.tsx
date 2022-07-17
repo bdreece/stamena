@@ -1,6 +1,5 @@
 import Link from 'next/link';
-
-import { useUser } from '@auth0/nextjs-auth0';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 import SearchBar from 'components/SearchBar';
 import Navbar from 'layout/Navbar';
@@ -9,8 +8,7 @@ import Footer from 'layout/Footer';
 import ProfileDropdown from 'layout/ProfileDropdown';
 
 const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
-  const { user } = useUser();
-
+  const { data: session } = useSession();
   return (
     <div className="drawer">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -22,14 +20,15 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
               Leaderboard
             </div>
           </Link>
-          {user ? (
-            <ProfileDropdown user={user} end />
+          {session?.user ? (
+            <ProfileDropdown user={session.user} />
           ) : (
-            <Link href="/api/auth/login">
-              <div className="btn btn-success text-light rounded-lg display">
-                Log In
-              </div>
-            </Link>
+            <button
+              className="btn btn-success text-light rounded-lg display"
+              onClick={() => signIn()}
+            >
+              Log In
+            </button>
           )}
         </Navbar>
         <div className="flex-1">{children}</div>
@@ -43,18 +42,27 @@ const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => {
               Leaderboard
             </div>
           </Link>
-          {user ? (
-            <ProfileDropdown
-              user={user}
-              label={user.name ?? undefined}
-              end={false}
-            />
+          {session?.user ? (
+            <>
+              <Link href="/dashboard">
+                <div className="flex-1 btn btn-secondary mb-4 display">
+                  Dashboard
+                </div>
+              </Link>
+              <button
+                className="flex-1 btn btn-warning display"
+                onClick={() => signOut()}
+              >
+                Log Out
+              </button>
+            </>
           ) : (
-            <Link href="/api/auth/login">
-              <div className="btn btn-success text-light rounded-lg display">
-                Log In
-              </div>
-            </Link>
+            <button
+              className="btn btn-success text-light rounded-lg display"
+              onClick={() => signIn()}
+            >
+              Log In
+            </button>
           )}
         </Drawer>
       </div>

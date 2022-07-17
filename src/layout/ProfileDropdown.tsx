@@ -33,21 +33,21 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({
       </label>
       <ul
         tabIndex={0}
-        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-48"
+        className="dropdown-content menu p-2 shadow bg-base-100 rounded-box justify-items-stretch w-52 mt-48"
       >
         <li>
           <Link className="display" href="/profile">
-            Profile
+            <div className="flex-1">Profile</div>
           </Link>
         </li>
         <li>
           <Link className="display" href="/dashboard">
-            Dashboard
+            <div className="flex-1">Dashboard</div>
           </Link>
         </li>
         <li>
           <Link className="display" href="/api/auth/logout">
-            Log Out
+            <div className="flex-1">Log Out</div>
           </Link>
         </li>
       </ul>
